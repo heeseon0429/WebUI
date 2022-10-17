@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>06_SimpleForm.html</title>
+<!-- 외부 CSS 연결 -->
+<link type='text/css' rel='stylesheet' href='./css/myform.css'>
+/* 상대경로
+<link type='text/css' rel='stylesheet' href='/WebUI/2_css_class/css/myform.css'>
+*/
+</head>
+<body>
+
+<form method = 'post'>
+	<fieldset>
+		<legend>회원가입</legend>
+		<ol>
+			<li>
+				<label for = 'name'>이름</label>
+				<input type = 'text' id = 'name' name = 'name'>	
+			</li>
+			
+			<li>
+				<lavel for = 'gender'>성별</lavel>
+				<input type = 'radio' name = 'gender' checked = 'checked'>남자	
+				<input type = 'radio' name = 'gender'>여자	
+			</li>
+			
+			<li>
+				<lavel for = 'job'>직업</lavel>
+				<select id = 'job' name = 'job'>
+					<option>개발자</option>
+					<option>프로그래머</option>
+					<option>코더</option>
+					<option>노가다</option>
+				</select>
+			</li>
+			
+			<li>
+				<label for = 'hobby'>취미</label>
+				<input type = 'checkbox' name = 'hobby'>잠자기
+				<input type = 'checkbox' name = 'hobby'>밥먹기
+				<input type = 'checkbox' name = 'hobby'>숨쉬기
+				<input type = 'checkbox' name = 'hobby'>멍때리기
+			</li>
+			
+			<li>
+				<label for = 'friend'>애인</label>
+				<input type = 'radio' name = 'friend'>있다
+				<input type = 'radio' name = 'friend'>없다
+			</li>
+			
+			<li>
+				<input type = 'submit' value = '확인'>
+				<input type = 'reset'  value = '취소'>
+			</li>
+			
+		</ol>
+	</fieldset>
+</form>
+
+
+</body>
+</html>
