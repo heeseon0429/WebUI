@@ -31,9 +31,70 @@ window.onload = function(){
 	
 	// 년 구하기
 	for( var j=year-5;  j<= year+5; j++){
-		frm.y.add( new Option(j, j));				// 만들고 브라우저 F12에서 Elements로 확인 : Option(j)와 Option(j,j) 차이
+		frm.y.add( new Option(j, j));		// 만들고 브라우저 F12에서 Elements로 확인 : Option(j)와 Option(j,j) 차이
 	}
 
+	// 월 구하기
+	for( var i=1; i<=12; i++){
+		frm.m.add(new Option(i,i));
+	}
+	
+	// 일 구하기
+	for( var h=1; h<= lastDays[month]; h++){
+		frm.d.add(new Option(h,h));
+	}
+	
+	// 오늘의 년,월,일로 화면에 지정
+	frm.y.value = year;
+	frm.m.value = month +1;
+	frm.d.value = date;
+	
+	//동일한 이벤트를 호출
+	frm.y.onchange = calc;
+	frm.m.onchange = calc;
+	frm.d.onchange = calc;
+	calc();
+	
+	var today = new Date();
+	function calc(){
+		// (1) 화면에서 각각의 년,월,일 값을 얻어오기
+		var y = frm.y.value;
+		var m = frm.m.value;
+		var d = frm.d.value;
+		// (2) Date() 객체에 각각의 년,월,일 값을 지정하기
+		var today = new Date();
+		today.setFullYear(y);
+		today.setMonth(m-1);
+		today.setDate(d);
+		
+		// (3) 해당 날짜의 요일을 구하여 화면 출력
+		frm.w.value = weeks[today.getDay()];
+// 		var weeks = today.getDay();
+// 		switch(weeks){
+// 		case 0 : frm.w.value = '일'; break;
+// 		case 1 : frm.w.value = '월'; break;
+// 		case 2 : frm.w.value = '화'; break;
+// 		case 3 : frm.w.value = '수'; break;
+// 		case 4 : frm.w.value = '목'; break;
+// 		case 5 : frm.w.value = '금'; break;
+// 		case 6 : frm.w.value = '토'; break;
+		
+		//----------------------------------------------
+		// 윤년
+		  if(y%4 == 0) {	//4년에 1번 윤년이 돌아온다.
+         lastDays[1] = 29;	
+      }
+
+		frm.d.options.length=0;
+		for( let h=1; h<= lastDays[ m-1]; h++){
+			frm.d.add(new Option(h,h));
+		}
+		lastDays[1] = 28;	//다시 28일로 돌아와야함.
+	      
+	      frm.d.value = d;
+
+		
+	}
 }
 </script>
 

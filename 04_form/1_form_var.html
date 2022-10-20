@@ -4,7 +4,19 @@
 <meta charset="UTF-8">
 <title></title>
 <script type="text/javascript">
-
+window.onload = function(){
+	
+	document.myForm.txt0.value = '메롱';
+	myForm['txt1'].value = '히히';
+	
+	document.getElementById('btn').onclick = function(){
+		//alert('ok')
+		for(var i=0; i<4; i++){
+			//각각의 텍스트 필드에 data-0/ date-1 ... 값들을 지정
+		myForm['txt' + i].value = 'data-' + i;	
+		}
+	}
+}
 </script>
 </head>
 <body>
@@ -14,6 +26,9 @@
 		세번째 :  <input type='text' name='txt2'><br/>
 		네번째 :  <input type='text' name='txt3'><br/>
 		<input type='button' value='값지정'  id='btn'>
-	</form>
+		
+		
+		
+</form>
 </body>
 </html>
