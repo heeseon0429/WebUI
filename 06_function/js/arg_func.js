@@ -1,5 +1,5 @@
 // 함수의 인자로 들어오는 함수처리
-function arrayProcess( data, f ) {
+function arrayProcess( data, f ) { //f: sum
 	for( key=0; key < data.length; key++ ){
 	//for(var key in data ){
 		f(  data[key].value );

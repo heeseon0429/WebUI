@@ -2,10 +2,29 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title> 03_argument.html </title>
+<title>03_argument.html</title>
 <script type="text/javascript">
 
 //@함수는 인자의 갯수를 체크하지 않는다.
+
+//★
+function multiple(first, second){					
+	return first*second;
+}
+document.write('곱은 ' + multiple(3,4) + "<br/>");	//곱은 12
+document.write('곱은 ' + multiple(3,4,5) + "<br/>");	//곱은 12 (인자의 갯수를 체크하지 않기때문에 출력됨)
+document.write('곱은 ' + multiple(3) + "<br/>");		//곱은 NaN (first:3 second:들어갈 인자가 없기때문에 undifined)
+
+
+
+/*
+function multiple(args){
+	return args.first * args.second;
+}
+var obj  = {first : 3, second : 4};
+document.write('곱은2 ' + multiple(obj) + "<br/>");	
+*/
+
 
 </script>
 </head>

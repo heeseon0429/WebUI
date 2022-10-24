@@ -6,7 +6,7 @@
 <script>
  
 	// @ 1. 인수의 기본값(default) 지정
-   	function multiple( first, second )
+   	function multiple( first, second=1 ) 			//second에 1을 지정해주면 3번째 출력값이 출력된다.(NaN -> 3)
 	{
 		return first * second;
 	}
@@ -14,6 +14,9 @@
 	document.writeln('곱은 ' +  multiple( 3, 4, 5 ) + '<br/>'  );
 	document.writeln('곱은 ' +  multiple( 3 ) + '<br/>' ); 
 	
+	document.write('곱은 ' + multiple(3, null) + "<br/>");		//0
+	document.write('곱은 ' + multiple(3, false) + "<br/>");		//0
+	document.write('곱은 ' + multiple(3, undefined) + "<br/>");	//3
 
 	
 	

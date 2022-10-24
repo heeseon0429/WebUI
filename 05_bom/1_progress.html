@@ -11,11 +11,12 @@
 	<progress max="100" id="progress"></progress>
 </body>
 <script>
-	var progress = document.getElementById("progress");
-	var current = 0;
+var progress = document.getElementById("progress");
+var current = 0;
 
-	
-	
+// setInterval(updateProgress, 100);
+setTimeout(function updateProgress(){progress.value = ++current}, 2000); // 아래의 함수가 통째로 인자의 자리로 들어감
+
 	
 
 	/* [참고]

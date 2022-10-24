@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+winObj = window.open("연습_1.html", "", "width =500, height=600")
+window.onload = function(){
+	var sel = frm.city;
+		sel.onchange = function(){
+			winObj.frm.result.value = this.value;
+		
+	}
+}
+</script>
+</head>
+<body>
+<form name = frm>
+<select name = 'city'>
+<option >서울시</option>
+<option>인천시</option>
+<option>대전시</option>
+<option>대구시</option>
+</select><br/>
+
+<input type='text' name='result' size='20'/><hr/>
+</form>
+
+
+</body>
+</html>

@@ -13,6 +13,28 @@
 //			아무튼 클로저를 이용하여 전역변수의 사용을 줄일 수 있다
 
 
+
+//------ 함수 선언
+//var가 있으면(지역변수) 특정 함수 안에서만 돌아가서 리턴값에 영향을 주지 않지만 var가 없으면(글로벌변수)가 되기 때문에 
+//밑에서 result=100000으로 지정해주면 그에 대한 값이 출력된다!
+function add(a,b,c){
+	var result = a + b; // 지역변수, var를 빼면 result는 글로벌변수임.
+	c(result); 
+	return function(){
+				result++;
+				return '공유결과?' + result;
+			};
+	}
+		
+//------ 함수 호출
+var resultVar = add(10,20,function(res){
+						document.write('결과 : ' + res + '<br/>');
+							}); 
+document.write('리턴 결과 : ' + resultVar() + '<hr/>');
+document.write('리턴 결과 : ' + resultVar() + '<hr/>');
+document.write('리턴 결과 : ' + resultVar() + '<hr/>');
+result = 100000; //글로벌 변수
+document.write('리턴 결과2 : ' + resultVar() + '<hr/>');
 </script>
 </head>
 <body>
