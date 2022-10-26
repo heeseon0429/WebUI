@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>jquery filter</title>
 
+
 <!--4. class 속성제어 -->
 <style type="text/css">
 	.bg { background : yellow; }
@@ -11,7 +12,34 @@
 	.borderRed { border : 3px dotted red; }
 	.borderBlue { border : 3px dotted blue; }
 </style>
+<script type="text/javascript" src='../lib/jquery-3.6.1.min.js'></script>
+<script type="text/javascript">
+$(function(){
+	//$('선택자').addClass('클래스명');
+	$('#result').addClass('food');
+	
+	// 1) 각 종류의 첫번째 요소 선택(떡볶이, 와인)
+	$('ul').find('li:eq(0)').addClass('border');
+	//$("li:nth-child(1)").addClass('bg');
 
+	// 2) 음식 중에서 세번째 요소 선택
+	$('food>li:eq(2)').addClass('bg');
+	//$("#food > li:nth-child(3)").addClass('bg');
+
+	// 3) '튀김'을 포함하는 요소 선택
+	$("#food>li:contains('튀김')").addClass('border');
+	
+	
+
+	// 4) 술 종류 중 두번째 요소 선택
+// 	$('ul:eq(1)').find('li:eq(1)').addClass('borderBlue');
+	$('ul:eq(1) > li:eq(1)').addClass('bg');
+	
+	//nth-child와 eq 차이??????????????????????????????????????????
+})
+
+
+</script>
 </head>
 <body>
 		<h1>제이쿼리 시작</h1>
